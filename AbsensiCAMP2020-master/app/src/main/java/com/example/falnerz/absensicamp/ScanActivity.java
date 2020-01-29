@@ -64,7 +64,6 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
         zXingScannerView = new ZXingScannerView(this);
         setContentView(zXingScannerView);
 
-
     }
 
 
@@ -198,7 +197,7 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
 //                Toast.makeText(getApplicationContext(), "No connection", Toast.LENGTH_LONG).show();
 //            }
 //        }
-        if (!result.getText().isEmpty()){
+        if (!result.getText().isEmpty() && isOnline()){
             otherPostAbsen(result.getText().toString());
         }
         else{
@@ -224,12 +223,13 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
             @Override
             public void onResponse(Call<List<PesertaModel>> call, Response<List<PesertaModel>> response) {
                 Toast.makeText(ScanActivity.this, "Presensi diupdate", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ScanActivity.this, MainActivity.class));
                 finish();
             }
 
             @Override
             public void onFailure(Call<List<PesertaModel>> call, Throwable t) {
-
+                Toast.makeText(ScanActivity.this, "Gagal mengupdate", Toast.LENGTH_SHORT).show();
             }
         });
     }
