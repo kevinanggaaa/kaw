@@ -138,6 +138,25 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>{
                 holder.nrp.setTextColor(Color.RED);
             }
         }
+        else if(kondisi.equals("bus_berangkat")){
+            if (satu.getBusBerangkat().equals("1")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.GREEN);
+            }else if(satu.getBusBerangkat().equals("0")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.RED);
+            }
+        }
+        //satu.
+        else if(kondisi.equals("bus_pulang")){
+            if (satu.getBusPulang().equals("1")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.GREEN);
+            }else if(satu.getBusPulang().equals("0")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.RED);
+            }
+        }
     }
 
     @Override
