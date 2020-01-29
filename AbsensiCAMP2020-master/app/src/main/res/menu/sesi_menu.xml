@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        android:id="@+id/groupnya">
+        <item android:id="@+id/menuSesi1" android:title="Sesi 1"></item>
+        <item android:id="@+id/menuSesi2" android:title="Sesi 2"></item>
+        <item android:id="@+id/menuSesi3" android:title="Sesi 3"></item>
+        <item android:id="@+id/menuSesi4" android:title="Sesi 4"></item>
+    </group>
+</menu>

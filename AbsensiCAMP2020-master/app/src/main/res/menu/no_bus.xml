@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/bus1" android:title="Bus 1"/>
+        <item android:id="@+id/bus2" android:title="Bus 2"/>
+        <item android:id="@+id/bus3" android:title="Bus 3"/>
+        <item android:id="@+id/bus4" android:title="Bus 4"/>
+        <item android:id="@+id/bus5" android:title="Bus 5"/>
+        <item android:id="@+id/bus6" android:title="Bus 6"/>
+        <item android:id="@+id/bus7" android:title="Bus 7"/>
+    </group>
+
+</menu>
