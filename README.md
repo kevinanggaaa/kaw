@@ -11,7 +11,7 @@ Aplikasi untuk melakukan presensi ukm dengan QR Code dan android
 
 ## Installation
 1) Android studio
-Untuk android studio bisa dilihat di https://www.niagahoster.co.id/blog/cara-install-android-studio-tutorial-lengkap/
+Untuk android studio, bisa dilihat di https://www.niagahoster.co.id/blog/cara-install-android-studio-tutorial-lengkap/
 2) GSON, Retrofit, and ZXing
 Ganti project ke android lalu buka Gradle Scripts/build.gradle (Module:app) kemudian taruh ketiga gradle dependency berikut
 ```java
