@@ -11,6 +11,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Vibrator;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.falnerz.absensicamp.server.Connector;
@@ -217,19 +219,32 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
     }
 
     private void otherPostAbsen(String nrp){
+        if (eventnya.equals("sesi")){
+            eventnya += "_" + MainActivity.sesiSelection;
+            Toast.makeText(appContext, "", Toast.LENGTH_SHORT).show();
+        }
         Connector connector = Connector_builder.getClient().create(Connector.class);
-        Call<List<PesertaModel>> postPeserta = connector.postPeserta(nrp, eventnya);
-        postPeserta.enqueue(new Callback<List<PesertaModel>>() {
+        Call<PesertaModel> postPeserta = connector.postPeserta(nrp, eventnya);
+        postPeserta.enqueue(new Callback<PesertaModel>() {
             @Override
-            public void onResponse(Call<List<PesertaModel>> call, Response<List<PesertaModel>> response) {
-                Toast.makeText(ScanActivity.this, "Presensi diupdate", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(ScanActivity.this, MainActivity.class));
-                finish();
+            public void onResponse(Call<PesertaModel> call, Response<PesertaModel> response) {
+                if (response.isSuccessful()){
+                    Toast.makeText(ScanActivity.this, "Presensi diupdate", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(ScanActivity.this, MainActivity.class));
+                    finish();
+                }else{
+                    Toast.makeText(ScanActivity.this, "Gagal mengupdate", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(ScanActivity.this, MainActivity.class));
+                    finish();
+                }
             }
 
             @Override
-            public void onFailure(Call<List<PesertaModel>> call, Throwable t) {
+            public void onFailure(Call<PesertaModel> call, Throwable t) {
                 Toast.makeText(ScanActivity.this, "Gagal mengupdate", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ScanActivity.this, MainActivity.class));
+                finish();
+                //Log.e("Call Error", t.getMessage());
             }
         });
     }

@@ -14,6 +14,6 @@ public interface Connector {
 
     @FormUrlEncoded
     @POST("absen")
-    Call<List<PesertaModel>> postPeserta(@Field("nrp") String nrp,
+    Call<PesertaModel> postPeserta(@Field("nrp") String nrp,
                                          @Field("event") String event);
 }

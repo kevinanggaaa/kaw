@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void showButtonClicked(View view) throws IOException, JSONException {
         view.startAnimation(buttonClickAnim);
-        Toast.makeText(this, eventnya, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, eventnya, Toast.LENGTH_SHORT).show();
         if(eventnya.length()==0){
             Toast.makeText(getApplicationContext(), "Pilih salah satu", Toast.LENGTH_SHORT).show();
             return;
@@ -316,7 +316,7 @@ public class MainActivity extends AppCompatActivity{
 
         if(v.getId()==R.id.rbSesi){
             eventnya="sesi";
-            eventTV="Sesi "+sesiSelection;
+            eventTV="Sesi " + sesiSelection;
             registerForContextMenu(v);
             openContextMenu(v);
         }else{

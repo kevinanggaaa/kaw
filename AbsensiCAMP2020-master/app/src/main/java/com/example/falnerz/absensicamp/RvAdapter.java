@@ -79,25 +79,61 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>{
             if (satu.getClosing().equals("1")){
                 holder.nrp.setText(satu.getNrp());
                 holder.nrp.setTextColor(Color.GREEN);
-            }else{
+            }else if(satu.getClosing().equals("0")){
                 holder.nrp.setText(satu.getNrp());
                 holder.nrp.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("worship_night")){
-            if (satu.getClosing().equals("1")){
+            if (satu.getWorshipNight().equals("1")){
                 holder.nrp.setText(satu.getNrp());
                 holder.nrp.setTextColor(Color.GREEN);
-            }else{
+            }else if(satu.getWorshipNight().equals("0")){
                 holder.nrp.setText(satu.getNrp());
                 holder.nrp.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("ibadah_minggu")){
-            if (satu.getClosing().equals("1")){
+            if (satu.getIbadahMinggu().equals("1")){
                 holder.nrp.setText(satu.getNrp());
                 holder.nrp.setTextColor(Color.GREEN);
-            }else{
+            }else if(satu.getIbadahMinggu().equals("0")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.RED);
+            }
+        }
+        else if(kondisi.equals("sesi_1")){
+            if (satu.getSesi1().equals("1")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.GREEN);
+            }else if(satu.getSesi1().equals("0")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.RED);
+            }
+        }
+        else if(kondisi.equals("sesi_2")){
+            if (satu.getSesi2().equals("1")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.GREEN);
+            }else if(satu.getSesi2().equals("0")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.RED);
+            }
+        }
+        else if(kondisi.equals("sesi_3")){
+            if (satu.getSesi3().equals("1")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.GREEN);
+            }else if(satu.getSesi3().equals("0")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.RED);
+            }
+        }
+        else if(kondisi.equals("sesi_4")){
+            if (satu.getSesi4().equals("1")){
+                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setTextColor(Color.GREEN);
+            }else if(satu.getSesi4().equals("0")){
                 holder.nrp.setText(satu.getNrp());
                 holder.nrp.setTextColor(Color.RED);
             }

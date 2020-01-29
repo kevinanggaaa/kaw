@@ -138,6 +138,10 @@ public class ShowActivity extends AppCompatActivity {
 
     private void set_data(List<PesertaModel> models){
         List<PesertaModel> baru = new ArrayList<>();
+        //Toast.makeText(this, eventnya, Toast.LENGTH_SHORT).show();
+        if (eventnya.equals("sesi")){
+            eventnya += ("_" + MainActivity.sesiSelection);
+        }
         switch (eventnya){
             case "opening":{
                 for (PesertaModel model : models){
@@ -163,6 +167,34 @@ public class ShowActivity extends AppCompatActivity {
             case "ibadah_minggu":{
                 for (PesertaModel model : models){
                     if (model.getIbadahMinggu().equals("1") || model.getOpening().equals("0")){
+                        baru.add(model);
+                    }
+                }
+            }break;
+            case "sesi_1":{
+                for (PesertaModel model : models){
+                    if (model.getSesi1().equals("1") || model.getSesi1().equals("0")){
+                        baru.add(model);
+                    }
+                }
+            }break;
+            case "sesi_2":{
+                for (PesertaModel model : models){
+                    if (model.getSesi2().equals("1") || model.getSesi2().equals("0")){
+                        baru.add(model);
+                    }
+                }
+            }break;
+            case "sesi_3":{
+                for (PesertaModel model : models){
+                    if (model.getSesi3().equals("1") || model.getSesi3().equals("0")){
+                        baru.add(model);
+                    }
+                }
+            }break;
+            case "sesi_4":{
+                for (PesertaModel model : models){
+                    if (model.getSesi4().equals("1") || model.getSesi4().equals("0")){
                         baru.add(model);
                     }
                 }
