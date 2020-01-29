@@ -279,6 +279,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void moveToScan(){
+        //Toast.makeText(this, "Masuk ini", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MainActivity.this, ScanActivity.class);
         startActivity(intent);
         overridePendingTransition (R.transition.fade_in,R.transition.fade_out);
@@ -326,6 +327,7 @@ public class MainActivity extends AppCompatActivity{
         if(v.getId()==R.id.rbBusPergi){
             prefixBus="Bus pergi , No : ";
             eventnya="bus_berangkat";
+            Toast.makeText(this, eventnya, Toast.LENGTH_SHORT).show();
             eventTV = prefixBus + busSelection;
             registerForContextMenu(v);
             openContextMenu(v);

@@ -50,7 +50,7 @@ public class ShowActivity extends AppCompatActivity {
 
     private String eventnya;
     private static TextView tvcount;
-    private AsyncTaskRetrieving proc;
+    //private AsyncTaskRetrieving proc;
     private static Toast toaster;
     private RecyclerView recyclerView;
     private RvAdapter adapter;
@@ -69,8 +69,8 @@ public class ShowActivity extends AppCompatActivity {
         kegiatan.setText(MainActivity.eventTV);
         AlphaAnimation buttonClickAnim = new AlphaAnimation(1F, 0.5F);
         buttonClickAnim.setDuration(400);
-        proc = new AsyncTaskRetrieving(this,eventnya);
-        proc.execute();
+//        proc = new AsyncTaskRetrieving(this,eventnya);
+//        proc.execute();
 
         init_view();
         connect_db();
@@ -210,170 +210,170 @@ public class ShowActivity extends AppCompatActivity {
     }
 
 
-    public static class AsyncTaskRetrieving extends AsyncTask<Void, Void, Void> {
-        private boolean running,downloading;
-        private String eventNow;
-        private Context konteks;
-        JSONArray dataJson;
-        AsyncTaskRetrieving(Context inkonteks,String eventnya){
-            eventNow = eventnya;
-            dataJson = null;
-            konteks = inkonteks;
-            running=false;
-            downloading=false;
-
-        }
-
-        public boolean isRunning(){
-            return running;
-        }
-
-        public boolean isDownloading(){return dataJson == null;}
-
-        public void downloadData(){
-            try {
-                URL url = new URL("https://pkmbk.jonathanrl.com/");
-                HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
-                StringBuffer stringBuffer = null;
-                stringBuffer = new StringBuffer();
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    stringBuffer.append(line);
-                }
-                dataJson = new JSONArray(stringBuffer.toString());
-            }
-            catch (Exception e){
-                //do nothing
-                System.out.println("download error : "+e);
-            }
-        }
-
-        public JSONArray getDownloadedData(){
-            return dataJson;
-        }
-
-        @SuppressLint("NewApi")
-        @Override
-        protected Void doInBackground(Void... params)
-        {
-            running = true;
-            downloading = true;
-            try {
-                downloadData();
-                while(isDownloading()){
-                    //do nothing
-                }
-                List<Pair<String, String>> listData = new ArrayList<>();
-                List<String> listNama = new ArrayList<>();
-                int count = 0, total = 0;
-                System.out.println("eventnya : "+eventNow);
-                if (Objects.equals(eventNow, "bus_berangkat") ||
-                        Objects.equals(eventNow, "bus_pulang")) {
-                    String kehadiran = eventNow.substring(4);
-                    int tempLen = dataJson.length();
-                    String displayedName;
-                    for (int i = 0; i < tempLen ; i++) {
-                        try {
-                            String noBus = dataJson.getJSONObject(i).getString(eventNow);
-                            if (!Objects.equals(noBus, String.valueOf(MainActivity.busSelection))) {
-                                continue;
-                            }
-                            total++;
-                            String namanya=dataJson.getJSONObject(i).getString("nama");
-                            if(namanya.length()>30) {
-                                displayedName = namanya.substring(0,26) + ".....";
-                            }
-                            else{
-                                displayedName=namanya;
-                            }
-                            listNama.add(namanya);
-                            String stat = dataJson.getJSONObject(i).getString(kehadiran);
-                            listData.add(new Pair(displayedName+"\n"+
-                                    dataJson.getJSONObject(i).getString("nrp"),
-                                    stat
-                            ));
-                            if (Objects.equals(stat, "1")) {
-                                count++;
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                else {//sisa event lain
-                    if (Objects.equals(eventNow, "sesi")) {
-                        eventNow = "sesi_" + MainActivity.sesiSelection;
-                    }
-                    total = dataJson.length();
-                    String displayedName;
-                    for (int i = 0; i < total; i++) {
-                        try {
-                            String stat = dataJson.getJSONObject(i).getString(eventNow);
-                            String namanya=dataJson.getJSONObject(i).getString("nama");
-                            if(namanya.length()>30) {
-                                displayedName = namanya.substring(0,26) + ".....";
-                            }
-                            else{
-                                displayedName=namanya;
-                            }
-                            listNama.add(namanya);
-                            listData.add(new Pair(displayedName+"\n"+
-                                    dataJson.getJSONObject(i).getString("nrp"),
-                                    stat
-                            ));
-                            if (Objects.equals(stat, "1")) {
-                                count++;
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                initListView((ArrayList<Pair<String, String>>) listData, (ArrayList<String>) listNama,count, total);
-            }
-            catch (final Exception e){
-//                UIHandler.post(new Runnable() {
-//                    @SuppressLint("SetTextI18n")
-//                    @Override
-//                    public void run() {
-//                        Toast.makeText(konteks, "Error:"+e, Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-            }
-            return null;
-
-        }
-
-        private void initListView(final ArrayList<Pair<String, String>> listData,final ArrayList<String> listNama,
-                                  final int count, final int total){
-            System.out.println("masuk init");
-//            UIHandler.post(new Runnable() {
-//                @SuppressLint("SetTextI18n")
-//                @Override
-//                public void run() {
-//                    try {
-//                        toaster.cancel();
+//    public static class AsyncTaskRetrieving extends AsyncTask<Void, Void, Void> {
+//        private boolean running,downloading;
+//        private String eventNow;
+//        private Context konteks;
+//        JSONArray dataJson;
+//        AsyncTaskRetrieving(Context inkonteks,String eventnya){
+//            eventNow = eventnya;
+//            dataJson = null;
+//            konteks = inkonteks;
+//            running=false;
+//            downloading=false;
 //
-//                        listAdapter = new ListAdapter(konteks,listData,listNama);
-//                        lview.setAdapter(listAdapter);
-//                        tvcount.setText("Participant : " + count + " / " + total);
-//                        Toast.makeText(konteks, "Updated", Toast.LENGTH_SHORT).show();
-//                    } catch (Exception e) {
-//                        Toast.makeText(konteks, "Error :"+e, Toast.LENGTH_SHORT).show();
+//        }
+//
+//        public boolean isRunning(){
+//            return running;
+//        }
+//
+//        public boolean isDownloading(){return dataJson == null;}
+//
+//        public void downloadData(){
+//            try {
+//                URL url = new URL("https://pkmbk.jonathanrl.com/");
+//                HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
+//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
+//                StringBuffer stringBuffer = null;
+//                stringBuffer = new StringBuffer();
+//                String line;
+//                while ((line = bufferedReader.readLine()) != null) {
+//                    stringBuffer.append(line);
+//                }
+//                dataJson = new JSONArray(stringBuffer.toString());
+//            }
+//            catch (Exception e){
+//                //do nothing
+//                System.out.println("download error : "+e);
+//            }
+//        }
+//
+//        public JSONArray getDownloadedData(){
+//            return dataJson;
+//        }
+//
+//        @SuppressLint("NewApi")
+//        @Override
+//        protected Void doInBackground(Void... params)
+//        {
+//            running = true;
+//            downloading = true;
+//            try {
+//                downloadData();
+//                while(isDownloading()){
+//                    //do nothing
+//                }
+//                List<Pair<String, String>> listData = new ArrayList<>();
+//                List<String> listNama = new ArrayList<>();
+//                int count = 0, total = 0;
+//                System.out.println("eventnya : "+eventNow);
+//                if (Objects.equals(eventNow, "bus_berangkat") ||
+//                        Objects.equals(eventNow, "bus_pulang")) {
+//                    String kehadiran = eventNow.substring(4);
+//                    int tempLen = dataJson.length();
+//                    String displayedName;
+//                    for (int i = 0; i < tempLen ; i++) {
+//                        try {
+//                            String noBus = dataJson.getJSONObject(i).getString(eventNow);
+//                            if (!Objects.equals(noBus, String.valueOf(MainActivity.busSelection))) {
+//                                continue;
+//                            }
+//                            total++;
+//                            String namanya=dataJson.getJSONObject(i).getString("nama");
+//                            if(namanya.length()>30) {
+//                                displayedName = namanya.substring(0,26) + ".....";
+//                            }
+//                            else{
+//                                displayedName=namanya;
+//                            }
+//                            listNama.add(namanya);
+//                            String stat = dataJson.getJSONObject(i).getString(kehadiran);
+//                            listData.add(new Pair(displayedName+"\n"+
+//                                    dataJson.getJSONObject(i).getString("nrp"),
+//                                    stat
+//                            ));
+//                            if (Objects.equals(stat, "1")) {
+//                                count++;
+//                            }
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
 //                    }
 //                }
-//            });
-            running = false;
-        }
-    }
-
-    public void refreshClicked(View view) {
-        if(proc.isRunning()){return;}
-        proc= new AsyncTaskRetrieving(this,eventnya);
-        proc.execute();
-    }
+//                else {//sisa event lain
+//                    if (Objects.equals(eventNow, "sesi")) {
+//                        eventNow = "sesi_" + MainActivity.sesiSelection;
+//                    }
+//                    total = dataJson.length();
+//                    String displayedName;
+//                    for (int i = 0; i < total; i++) {
+//                        try {
+//                            String stat = dataJson.getJSONObject(i).getString(eventNow);
+//                            String namanya=dataJson.getJSONObject(i).getString("nama");
+//                            if(namanya.length()>30) {
+//                                displayedName = namanya.substring(0,26) + ".....";
+//                            }
+//                            else{
+//                                displayedName=namanya;
+//                            }
+//                            listNama.add(namanya);
+//                            listData.add(new Pair(displayedName+"\n"+
+//                                    dataJson.getJSONObject(i).getString("nrp"),
+//                                    stat
+//                            ));
+//                            if (Objects.equals(stat, "1")) {
+//                                count++;
+//                            }
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                }
+//                initListView((ArrayList<Pair<String, String>>) listData, (ArrayList<String>) listNama,count, total);
+//            }
+//            catch (final Exception e){
+////                UIHandler.post(new Runnable() {
+////                    @SuppressLint("SetTextI18n")
+////                    @Override
+////                    public void run() {
+////                        Toast.makeText(konteks, "Error:"+e, Toast.LENGTH_SHORT).show();
+////                    }
+////                });
+//            }
+//            return null;
+//
+//        }
+//
+//        private void initListView(final ArrayList<Pair<String, String>> listData,final ArrayList<String> listNama,
+//                                  final int count, final int total){
+//            System.out.println("masuk init");
+////            UIHandler.post(new Runnable() {
+////                @SuppressLint("SetTextI18n")
+////                @Override
+////                public void run() {
+////                    try {
+////                        toaster.cancel();
+////
+////                        listAdapter = new ListAdapter(konteks,listData,listNama);
+////                        lview.setAdapter(listAdapter);
+////                        tvcount.setText("Participant : " + count + " / " + total);
+////                        Toast.makeText(konteks, "Updated", Toast.LENGTH_SHORT).show();
+////                    } catch (Exception e) {
+////                        Toast.makeText(konteks, "Error :"+e, Toast.LENGTH_SHORT).show();
+////                    }
+////                }
+////            });
+//            running = false;
+//        }
+//    }
+//
+//    public void refreshClicked(View view) {
+//        if(proc.isRunning()){return;}
+//        proc= new AsyncTaskRetrieving(this,eventnya);
+//        proc.execute();
+//    }
 
     @Override
     public void onBackPressed() {
