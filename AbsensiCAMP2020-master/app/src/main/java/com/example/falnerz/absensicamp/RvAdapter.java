@@ -1,5 +1,6 @@
 package com.example.falnerz.absensicamp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -43,7 +44,8 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>{
             clear();
             text = text.toLowerCase();
             for (PesertaModel pesert : itemCopy){
-                if ((pesert.getNrp().toLowerCase().contains(text))){
+                if ((pesert.getNrp().toLowerCase().contains(text)) ||
+                        (pesert.getNama().toLowerCase().contains(text))){
                     peserta.add(pesert);
                     break;
                 }
@@ -64,97 +66,136 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>{
     }
     public void clear() { peserta.clear(); }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         PesertaModel satu = peserta.get(position);
         if (kondisi.equals("opening")){
             if (satu.getOpening().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else{
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }else if(kondisi.equals("closing")){
             if (satu.getClosing().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getClosing().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("worship_night")){
             if (satu.getWorshipNight().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getWorshipNight().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("ibadah_minggu")){
             if (satu.getIbadahMinggu().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getIbadahMinggu().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("sesi_1")){
             if (satu.getSesi1().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getSesi1().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("sesi_2")){
             if (satu.getSesi2().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getSesi2().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("sesi_3")){
             if (satu.getSesi3().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getSesi3().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("sesi_4")){
             if (satu.getSesi4().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getSesi4().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         else if(kondisi.equals("bus_berangkat")){
             if (satu.getBusBerangkat().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.GREEN);
+                holder.namas.setTextColor(Color.GREEN);
             }else if(satu.getBusBerangkat().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
         //satu.
         else if(kondisi.equals("bus_pulang")){
             if (satu.getBusPulang().equals("1")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
                 holder.nrp.setTextColor(Color.GREEN);
             }else if(satu.getBusPulang().equals("0")){
-                holder.nrp.setText(satu.getNrp());
+                holder.nrp.setText("(" + satu.getNrp() + ")");
+                holder.namas.setText(satu.getNama() + " ");
                 holder.nrp.setTextColor(Color.RED);
+                holder.namas.setTextColor(Color.RED);
             }
         }
     }
@@ -166,9 +207,10 @@ public class RvAdapter extends RecyclerView.Adapter<RvAdapter.ViewHolder>{
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView nrp;
+        private TextView nrp, namas;
         ViewHolder(@NonNull View itemView) {
             super(itemView);
+            namas = itemView.findViewById(R.id.nama);
             nrp = itemView.findViewById(R.id.nrp);
 
             itemView.setOnClickListener(new View.OnClickListener() {
