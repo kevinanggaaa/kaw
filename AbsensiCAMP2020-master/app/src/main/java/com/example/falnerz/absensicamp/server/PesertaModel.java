@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class PesertaModel {
     @SerializedName("id")
     @Expose
-    private Integer id;
+    private String id;
     @SerializedName("nrp")
     @Expose
     private String nrp;
@@ -55,12 +55,54 @@ public class PesertaModel {
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
+    @SerializedName("nama")
+    @Expose
+    private String nama;
+    @SerializedName("jenis_kelamin")
+    @Expose
+    private String jenisKelamin;
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("departemen")
+    @Expose
+    private String departemen;
+    @SerializedName("posisi")
+    @Expose
+    private String posisi;
+    @SerializedName("nama_pkk")
+    @Expose
+    private String namaPkk;
+    @SerializedName("alergi")
+    @Expose
+    private Object alergi;
+    @SerializedName("penyakit")
+    @Expose
+    private Object penyakit;
+    @SerializedName("hp")
+    @Expose
+    private String hp;
+    @SerializedName("hp_ortu")
+    @Expose
+    private String hpOrtu;
+    @SerializedName("line")
+    @Expose
+    private String line;
+    @SerializedName("foto")
+    @Expose
+    private String foto;
+    @SerializedName("bukti_transfer")
+    @Expose
+    private String buktiTransfer;
+    @SerializedName("konfirmasi")
+    @Expose
+    private String konfirmasi;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -190,5 +232,117 @@ public class PesertaModel {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getJenisKelamin() {
+        return jenisKelamin;
+    }
+
+    public void setJenisKelamin(String jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDepartemen() {
+        return departemen;
+    }
+
+    public void setDepartemen(String departemen) {
+        this.departemen = departemen;
+    }
+
+    public String getPosisi() {
+        return posisi;
+    }
+
+    public void setPosisi(String posisi) {
+        this.posisi = posisi;
+    }
+
+    public String getNamaPkk() {
+        return namaPkk;
+    }
+
+    public void setNamaPkk(String namaPkk) {
+        this.namaPkk = namaPkk;
+    }
+
+    public Object getAlergi() {
+        return alergi;
+    }
+
+    public void setAlergi(Object alergi) {
+        this.alergi = alergi;
+    }
+
+    public Object getPenyakit() {
+        return penyakit;
+    }
+
+    public void setPenyakit(Object penyakit) {
+        this.penyakit = penyakit;
+    }
+
+    public String getHp() {
+        return hp;
+    }
+
+    public void setHp(String hp) {
+        this.hp = hp;
+    }
+
+    public String getHpOrtu() {
+        return hpOrtu;
+    }
+
+    public void setHpOrtu(String hpOrtu) {
+        this.hpOrtu = hpOrtu;
+    }
+
+    public String getLine() {
+        return line;
+    }
+
+    public void setLine(String line) {
+        this.line = line;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getBuktiTransfer() {
+        return buktiTransfer;
+    }
+
+    public void setBuktiTransfer(String buktiTransfer) {
+        this.buktiTransfer = buktiTransfer;
+    }
+
+    public String getKonfirmasi() {
+        return konfirmasi;
+    }
+
+    public void setKonfirmasi(String konfirmasi) {
+        this.konfirmasi = konfirmasi;
     }
 }
