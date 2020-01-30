@@ -199,6 +199,20 @@ public class ShowActivity extends AppCompatActivity {
                     }
                 }
             }break;
+            case "bus_berangkat":{
+                for (PesertaModel model : models){
+                    if (model.getSesi4().equals("1") || model.getSesi4().equals("0")){
+                        baru.add(model);
+                    }
+                }
+            }break;
+            case "bus_pulang":{
+                for (PesertaModel model : models){
+                    if (model.getSesi4().equals("1") || model.getSesi4().equals("0")){
+                        baru.add(model);
+                    }
+                }
+            }break;
             default:
         }
         adapter.setGangguan(baru, eventnya);
