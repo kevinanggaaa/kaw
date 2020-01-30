@@ -9,25 +9,27 @@
         android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@drawable/background"
         android:scaleType="centerCrop"
+        android:src="@drawable/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     <TextView
+        android:id="@+id/tvKegiatan2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
         android:fontFamily="@font/sfpro_display_bold"
-        android:text="event"
-        android:textSize="30dp"
         android:gravity="center_horizontal"
-        android:id="@+id/tvKegiatan2"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Daftar Peserta"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -94,9 +96,10 @@
             android:layout_marginEnd="-5dp"
             android:layout_marginRight="-5dp"
             android:layout_marginBottom="4dp"
-            android:background="@drawable/round_button"
+            android:background="@android:drawable/editbox_background_normal"
             android:onClick="refreshClicked"
-            android:text="Refresh" />
+            android:text="Refresh"
+            android:textColor="#03A9F4" />
     </LinearLayout>
 
     <androidx.appcompat.widget.SearchView
@@ -114,9 +117,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchItem"
-        tools:listitem="@layout/item_absen"/>
+        tools:listitem="@layout/item_absen" />
 
     <ProgressBar
         android:layout_width="wrap_content"

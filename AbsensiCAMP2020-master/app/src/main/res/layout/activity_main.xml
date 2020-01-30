@@ -14,9 +14,12 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     <TextView
         android:id="@+id/tvKegiatan"
@@ -27,8 +30,8 @@
         android:layout_marginTop="90dp"
         android:fontFamily="@font/sfpro_display_bold"
         android:gravity="center_horizontal"
-        android:text="KEGIATAN"
-        android:textColor="@android:color/black"
+        android:text="PILIHANKU"
+        android:textColor="#03A9F4"
         android:textColorLink="@android:color/background_light"
         android:textSize="28dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView"
@@ -61,14 +64,14 @@
                 android:layout_height="65dp"
                 android:layout_alignTop="@+id/rbBusPulang"
                 android:layout_alignParentLeft="true"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:buttonTint="@android:color/black"
                 android:fontFamily="@font/sfpro_display_thin"
                 android:onClick="radioButtonClicked"
                 android:text=" BUS\n PERGI"
-                android:textColor="@android:color/black"
-                android:textSize="18dp"
-                android:layout_margin="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/rbOpening"
@@ -78,14 +81,14 @@
                 android:layout_below="@+id/rbBusPergi"
                 android:layout_alignStart="@+id/rbBusPergi"
                 android:layout_alignLeft="@+id/rbBusPergi"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:buttonTint="@android:color/black"
                 android:fontFamily="@font/sfpro_display_thin"
                 android:onClick="radioButtonClicked"
                 android:text=" OPENING"
-                android:textColor="@android:color/black"
-                android:textSize="18dp"
-                android:layout_margin="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/rbClosing"
@@ -95,14 +98,14 @@
                 android:layout_below="@+id/rbOpening"
                 android:layout_alignStart="@+id/rbOpening"
                 android:layout_alignLeft="@+id/rbOpening"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:buttonTint="@android:color/black"
                 android:fontFamily="@font/sfpro_display_thin"
                 android:onClick="radioButtonClicked"
                 android:text=" CLOSING"
-                android:textColor="@android:color/black"
-                android:textSize="18dp"
-                android:layout_margin="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,14 +123,14 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:buttonTint="@android:color/black"
                 android:fontFamily="@font/sfpro_display_thin"
                 android:onClick="radioButtonClicked"
                 android:text=" BUS\n PULANG"
-                android:textColor="@android:color/black"
-                android:textSize="18dp"
-                android:layout_margin="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/rbSesi"
@@ -137,14 +140,14 @@
                 android:layout_alignStart="@+id/rbBusPulang"
                 android:layout_alignLeft="@+id/rbBusPulang"
                 android:layout_alignTop="@+id/rbOpening"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:buttonTint="@android:color/black"
                 android:fontFamily="@font/sfpro_display_thin"
                 android:onClick="radioButtonClicked"
                 android:text=" SESI"
-                android:textColor="@android:color/black"
-                android:textSize="18dp"
-                android:layout_margin="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
 
             <RadioButton
                 android:id="@+id/rbWorshipNight"
@@ -154,14 +157,14 @@
                 android:layout_below="@+id/rbSesi"
                 android:layout_alignStart="@+id/rbSesi"
                 android:layout_alignLeft="@+id/rbSesi"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:buttonTint="@android:color/black"
                 android:fontFamily="@font/sfpro_display_thin"
                 android:onClick="radioButtonClicked"
                 android:text=" WORSHIP\n NIGHT"
-                android:textColor="@android:color/black"
-                android:textSize="18dp"
-                android:layout_margin="10dp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -170,19 +173,19 @@
         style="@android:style/Widget.Holo.Light.CompoundButton.RadioButton"
         android:layout_width="105dp"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
         android:buttonTint="@android:color/black"
         android:fontFamily="@font/sfpro_display_thin"
         android:gravity="center_horizontal"
         android:onClick="radioButtonClicked"
         android:text="FGD"
-        android:textColor="@android:color/black"
+        android:textColor="#FFFFFF"
         android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -200,11 +203,11 @@
             android:id="@+id/absen"
             android:layout_width="105dp"
             android:layout_height="40dp"
-            android:background="@drawable/round_button"
+            android:background="@android:drawable/editbox_background_normal"
             android:fontFamily="@font/sfpro_display_bold"
             android:onClick="scanButtonClicked"
             android:text="absen"
-            android:textColor="@android:color/white"
+            android:textColor="#03A9F4"
             android:textSize="17dp" />
 
         <Button
@@ -212,22 +215,22 @@
             android:layout_width="105dp"
             android:layout_height="40dp"
             android:layout_below="@+id/rbIbadahMinggu"
-            android:background="@drawable/round_button"
+            android:background="@android:drawable/editbox_background_normal"
             android:fontFamily="@font/sfpro_display_bold"
             android:onClick="showButtonClicked"
             android:text="SHOW"
-            android:textColor="@android:color/white"
+            android:textColor="#03A9F4"
             android:textSize="17dp" />
 
         <Button
             android:id="@+id/assignBus"
             android:layout_width="170dp"
             android:layout_height="40dp"
-            android:background="@drawable/round_button"
+            android:background="@android:drawable/editbox_background_normal"
             android:fontFamily="@font/sfpro_display_bold"
             android:onClick="scanButtonClicked"
             android:text="ASSIGN bus"
-            android:textColor="@android:color/white"
+            android:textColor="#03A9F4"
             android:textSize="17dp" />
     </LinearLayout>
 
